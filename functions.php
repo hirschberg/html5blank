@@ -516,6 +516,11 @@ function my_theme_register_required_plugins() {
                         'slug'                 => 'w3-total-cache',
                         'required'         => false,
                 ),
+                array(
+                        'name'                 => 'iThemes Security',
+                        'slug'                 => 'better-wp-security',
+                        'required'         => true,
+                ),
         );
 
         // Change this to your theme text domain, used for internationalising strings
