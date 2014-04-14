@@ -34,16 +34,16 @@ body {
 	color:#444;
 }
 /* clear */
-.clear:before,
-.clear:after {
+.clearfix:before,
+.clearfix:after {
     content:' ';
     display:table;
 }
 
-.clear:after {
+.clearfix:after {
     clear:both;
 }
-.clear {
+.clearfix {
     *zoom:1;
 }
 img {
