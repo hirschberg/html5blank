@@ -582,4 +582,53 @@ function the_slug($postID="") {
 
 }
 
+
+/* ==========================================================================
+   Custom Styles
+   ========================================================================== */
+
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
+function my_mce_buttons_2( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init' );
+
+function my_mce_before_init( $settings ) {
+
+    $style_formats = array(
+        array(
+            'title' => 'Zweispalter',
+            'block' => 'div',
+            'classes' => 'twocol',
+            'wrapper' => 'true'
+        ),
+        array(
+            'title' => 'Highlight zentriert',
+            'block' => 'div',
+            'classes' => 'highlight',
+            'wrapper' => 'true'
+        ),
+        array(
+            'title' => 'Bild über mich',
+            'selector' => 'img',
+            'classes' => 'aboutimg'
+        )
+    );
+
+    $settings['style_formats'] = json_encode( $style_formats );
+
+    return $settings;
+
+}
+
+
+add_action( 'admin_init', 'add_my_editor_style' );
+
+function add_my_editor_style() {
+    add_editor_style();
+}
+
 ?>
