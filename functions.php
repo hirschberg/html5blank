@@ -128,6 +128,15 @@ function html5blank_styles()
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
 
+
+// Include the less-class-file (unless you are using the script as a plugin)
+require_once( 'wp-less/wp-less.php' );
+
+// enqueue a .less style sheet
+if ( ! is_admin() )
+    wp_enqueue_style( 'less-style', get_stylesheet_directory_uri() . '/style.less' );
+
+
 // Register HTML5 Blank Navigation
 function register_html5_menu()
 {
